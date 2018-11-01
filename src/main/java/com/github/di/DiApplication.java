@@ -1,5 +1,6 @@
 package com.github.di;
 
+import com.github.di.controllers.ConstructorInjectedController;
 import com.github.di.controllers.MyController;
 import com.github.di.controllers.PropertyInjectedController;
 import com.github.di.controllers.SetterInjectedController;
@@ -25,6 +26,6 @@ public class DiApplication {
         // that's why we should use @Controller annotation
         System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
         System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
-        //System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
+        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
 	}
 }

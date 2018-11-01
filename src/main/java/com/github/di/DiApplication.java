@@ -1,6 +1,8 @@
 package com.github.di;
 
 import com.github.di.controllers.MyController;
+import com.github.di.controllers.PropertyInjectedController;
+import com.github.di.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,5 +19,12 @@ public class DiApplication {
 
         // we can now call method on bean
         controller.hello();
+
+        // No qualifying bean of type 'com.github.di.controllers.PropertyInjectedController' available
+        // means that constroller isn't annotated as Bean
+        // that's why we should use @Controller annotation
+        System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
+        System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
+        //System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
 	}
 }
